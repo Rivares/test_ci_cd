@@ -20,7 +20,7 @@ jobs:
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
       - run: sudo mkdir /usr/src/googletest/build
       - run: cd /usr/src/googletest/build && sudo rm -f ../CMakeCache.txt && sudo cmake ../ && sudo make
-      - run: sudo cp -R /usr/src/googlemock/ /usr/lib
+      - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
       - run: sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
       - run: sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - run: cd {{ github.workspace }}
