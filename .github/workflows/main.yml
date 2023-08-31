@@ -21,7 +21,7 @@ jobs:
       - run: cd /usr/src/googletest/
       - run: sudo cmake CMakeLists.txt
       - run: sudo make
-      - run: sudo cp lib/*.a /usr/lib
+      - run: sudo cp build/lib/*.a /usr/lib
       - run: sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
       - run: sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - run: cd {{ github.workspace }}
