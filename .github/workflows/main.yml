@@ -17,15 +17,14 @@ jobs:
           submodules: true
       - run: sudo apt-get update && sudo apt-get install cmake libboost-test-dev -y
       - run: sudo apt-get update && sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
-      - run: cd /usr/src/googletest/
-      - run: sudo mkdir build && cd build
-      - run: sudo cmake ..
-      - run: sudo make
-      - run: sudo cp -R googlemock/ /usr/lib
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
+      - run: cd /usr/src/googletest/
+      - run: sudo cmake CMakeLists.txt
+      - run: sudo make
+      - run: sudo cp -R googlemock/ /usr/lib
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1

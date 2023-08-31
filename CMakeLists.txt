@@ -44,7 +44,6 @@ target_link_libraries(gtest_version PUBLIC
     gtest
     gmock
     pthread
-    helloworld
 )
 
 
@@ -72,7 +71,7 @@ else ()
         -Wall -Wextra -pedantic -Werror
     )
     target_compile_options(gtest_version PRIVATE
-        Wall -Wextra -pedantic -Werror
+        -Wall -Wextra -pedantic -Werror
     )
 endif()
 
