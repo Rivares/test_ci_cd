@@ -23,7 +23,7 @@ jobs:
       - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
       - run: sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
       - run: sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
-      - run: cd {{ github.workspace }}
+      - run: pwd
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
       - run: cmake --build . --target test
