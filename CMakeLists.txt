@@ -12,7 +12,7 @@ configure_file(version.h.in version.h)
 add_executable(helloworld_cli main.cpp)
 add_library(helloworld lib.cpp)
 add_executable(test_version test_version.cpp)
-add_executable(gtest_version gtest_version.cpp)
+add_executable(gtest_version gtest_version.cpp gtest_main.cpp)
 
 set_target_properties(helloworld_cli helloworld test_version gtest_version  PROPERTIES
     CXX_STANDARD 17
@@ -28,9 +28,6 @@ set_target_properties(test_version PROPERTIES
     COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
     INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
 )
-#set_target_properties(gtest_version PROPERTIES
-#    VERSION ${GOOGLETEST_VERSION}
-#)
 
 
 target_link_libraries(helloworld_cli PRIVATE
@@ -44,6 +41,7 @@ target_link_libraries(gtest_version PUBLIC
     gtest
     gmock
     pthread
+    helloworld
 )
 
 
@@ -71,7 +69,7 @@ else ()
         -Wall -Wextra -pedantic -Werror
     )
     target_compile_options(gtest_version PRIVATE
-        -Wall -Wextra -pedantic -Werror
+        -lgtest -lgmock -pthread
     )
 endif()
 

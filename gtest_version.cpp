@@ -6,7 +6,7 @@
 
 
 
-//TEST(TestGroupName, Subtest_1)
-//{
-//    ASSERT_TRUE(version() != 100);
-//}
+TEST(TestGroupName, Subtest_1)
+{
+    ASSERT_TRUE(version() != 100);
+}
