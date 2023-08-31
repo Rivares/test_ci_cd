@@ -18,10 +18,10 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install cmake libboost-test-dev -y
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
-      - run: cd /usr/src/googletest/
-      - run: sudo cmake CMakeLists.txt
+      - run: sudo mkdir /usr/src/googletest/build && cd /usr/src/googletest/build
+      - run: sudo cmake ..
       - run: sudo make
-      - run: sudo cp build/lib/*.a /usr/lib
+      - run: sudo cp -R googlemock/ /usr/lib
       - run: sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
       - run: sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - run: cd {{ github.workspace }}
