@@ -19,7 +19,8 @@ jobs:
       - run: sudo apt-get install cmake libboost-test-dev -y
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
       - run: sudo mkdir /usr/src/googletest/build && cd /usr/src/googletest/build
-      - run: sudo cmake ..
+      - run: sudo rm ../CMakeCache.txt
+      - run: sudo cmake ../
       - run: sudo make
       - run: sudo cp -R googlemock/ /usr/lib
       - run: sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
