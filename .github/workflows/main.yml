@@ -55,7 +55,7 @@ jobs:
         uses: actions/run-package@v1
         with:
           submodules: true
-job_run:
+  job_run:
     needs: [job_build]
     runs-on: ubuntu-latest
     steps:
