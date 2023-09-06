@@ -51,6 +51,8 @@ jobs:
           asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
       - name: Run package
+        id: run_package
+        uses: actions/run-package@v1
       - run: sudo apt install -y otus_main_point-0.0.1-Linux.deb
       - run: otus_main_point
   job_test:
