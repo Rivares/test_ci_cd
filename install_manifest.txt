@@ -1,0 +1,3 @@
+/usr/local/bin/otus_main_point
+/usr/local/bin/otus_main_point
+/otus_main_point/libplugin_auto_lambda.so

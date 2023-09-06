@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/libs/common/common.hpp
+
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/src/otus_main_point/tests/google_/test_main_google.cpp
+test_main_google.hpp
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/src/otus_main_point/tests/google_/test_main_google.hpp
+../../../../libs/common/common.hpp
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/libs/common/common.hpp
+gtest/gtest.h
+-
+
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/src/otus_main_point/tests/google_/test_main_google.hpp
+
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/src/otus_main_point/tests/google_/test_main_google_autogen/mocs_compilation.cpp
+
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/src/otus_main_point/tests/google_/test_main_google_fmain.cpp
+../../../../libs/common/common.hpp
+/media/ermolov/HDD1/0_C++/OTUS/test_ci_cd/libs/common/common.hpp
+gtest/gtest.h
+-
+iostream
+-
+
