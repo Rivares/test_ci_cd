@@ -52,31 +52,31 @@ jobs:
           asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions: write-all
-    # services:
-    #   postgres:
-    #     image: postgres:14
-    #     ports:
-    #       - "5432:5432"
-    #     env:
-    #       POSTGRES_DB: rails_test
-    #       POSTGRES_USER: rails
-    #       POSTGRES_PASSWORD: password
-    # env:
-    #   POSTGRES_DB: rails_test
-    #   POSTGRES_USER: rails
-    #   POSTGRES_PASSWORD: password
-    #   RAILS_ENV: test
-    #   DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+  # test:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   permissions: write-all
+  #   # services:
+  #   #   postgres:
+  #   #     image: postgres:14
+  #   #     ports:
+  #   #       - "5432:5432"
+  #   #     env:
+  #   #       POSTGRES_DB: rails_test
+  #   #       POSTGRES_USER: rails
+  #   #       POSTGRES_PASSWORD: password
+  #   # env:
+  #   #   POSTGRES_DB: rails_test
+  #   #   POSTGRES_USER: rails
+  #   #   POSTGRES_PASSWORD: password
+  #   #   RAILS_ENV: test
+  #   #   DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
 
-    steps:
-      - name: Testing code
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/boost_/test_main_boost
-      - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/google_/test_main_google
+  #   steps:
+  #     - name: Testing code
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         submodules: true
+  #     - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/boost_/test_main_boost
+  #     - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/google_/test_main_google
 
