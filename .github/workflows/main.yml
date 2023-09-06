@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  job_build:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
@@ -53,8 +53,8 @@ jobs:
           asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-  test:
-    needs: [build]
+  job_test:
+    needs: [job_build]
     runs-on: ubuntu-latest
     steps:
       # Clone this repo
