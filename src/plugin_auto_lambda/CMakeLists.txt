@@ -23,7 +23,6 @@ target_link_libraries(${package_name} PUBLIC
             Qt5::Widgets
             Qt5::Sql
             Qt5::PrintSupport
-            Qt5::Svg
             )
 
 install(TARGETS ${package_name} DESTINATION

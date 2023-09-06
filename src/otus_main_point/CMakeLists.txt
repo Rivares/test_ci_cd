@@ -32,7 +32,6 @@ target_link_libraries(otus_main_point PUBLIC
             Qt5::Widgets
             Qt5::Sql
             Qt5::PrintSupport
-            Qt5::Svg
             common
             )
 

@@ -50,7 +50,7 @@ PluginAutoLambda::PluginAutoLambda()
     painter.end();
 
 
-    //-----------------
+    //-----------------53253
 }
 
 PluginAutoLambda::~PluginAutoLambda()

@@ -51,7 +51,6 @@ find_package(Qt5 REQUIRED COMPONENTS
                     PrintSupport
                     Xml
                     Sql
-                    Svg
                     Concurrent
                     )
 
