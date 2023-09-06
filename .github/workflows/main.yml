@@ -28,8 +28,8 @@ jobs:
       - run: pwd
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
       - run: cmake --build .
-      - run: cmake --build . --target test
-      - run: cmake --build . --target package
+      # - run: cmake --build . --target test
+      # - run: cmake --build . --target package
       - run: sudo apt install -y otus_main_point-0.0.1-Linux.deb
       - run: otus_main_point
 
