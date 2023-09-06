@@ -50,11 +50,6 @@ jobs:
           asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-      - name: Run package
-        id: run_package
-        uses: actions/run-package@v1
-        with:
-          submodules: true
   job_run:
     needs: [job_build]
     runs-on: ubuntu-latest
