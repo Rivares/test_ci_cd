@@ -18,7 +18,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install cmake libboost-test-dev -y
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
-      - run: sudo apt-get install build-essential libgl1-mesa-dev qt6-base-dev
+      - run: sudo apt-get install build-essential libgl1-mesa-dev qt6-base-dev cmake-qt-gui ninja-build openssl
       - run: sudo mkdir /usr/src/googletest/build
       - run: cd /usr/src/googletest/build && sudo rm -f ../CMakeCache.txt && sudo cmake ../ && sudo make
       - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
@@ -55,7 +55,7 @@ jobs:
   test:
     needs: build
     runs-on: ubuntu-latest
-    permissions: write-all
+    # permissions: write-all
     # services:
     #   postgres:
     #     image: postgres:14
@@ -77,6 +77,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: true
-      # - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/boost_/test_main_boost
+      - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/boost_/test_main_boost
       # - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/google_/test_main_google
 
