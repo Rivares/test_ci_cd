@@ -18,6 +18,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install cmake libboost-test-dev -y
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
+      - run: sudo apt-get install build-essential libgl1-mesa-dev qt6-base-dev
       - run: sudo mkdir /usr/src/googletest/build
       - run: cd /usr/src/googletest/build && sudo rm -f ../CMakeCache.txt && sudo cmake ../ && sudo make
       - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
@@ -28,6 +29,8 @@ jobs:
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package
+      - run: sudo apt install -y otus_main_point-0.0.1-Linux.deb
+      - run: otus_main_point
 
       - name: Create Release
         id: create_release
@@ -49,3 +52,31 @@ jobs:
           asset_path: ./helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_name: helloworld-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions: write-all
+    # services:
+    #   postgres:
+    #     image: postgres:14
+    #     ports:
+    #       - "5432:5432"
+    #     env:
+    #       POSTGRES_DB: rails_test
+    #       POSTGRES_USER: rails
+    #       POSTGRES_PASSWORD: password
+    # env:
+    #   POSTGRES_DB: rails_test
+    #   POSTGRES_USER: rails
+    #   POSTGRES_PASSWORD: password
+    #   RAILS_ENV: test
+    #   DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
+
+    steps:
+      - name: Testing code
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/boost_/test_main_boost
+      - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/google_/test_main_google
+

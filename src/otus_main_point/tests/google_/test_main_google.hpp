@@ -1,0 +1,6 @@
+#ifndef TEST_MAIN_GOOGLE
+#define TEST_MAIN_GOOGLE
+
+
+
+#endif // TEST_MAIN_GOOGLE
