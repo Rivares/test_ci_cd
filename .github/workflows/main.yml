@@ -56,7 +56,6 @@ jobs:
     steps:
       # Clone this repo
       - name: Checkout
-      - uses: ${{ github.repository }}
       - run: sudo apt install -y otus_main_point-0.0.${{ github.run_number }}-Linux.deb
       - run: ./otus_main_point
   job_test:
