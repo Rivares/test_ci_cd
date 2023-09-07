@@ -42,7 +42,7 @@ set(CPACK_PACKAGE_CONTACT ura@example.ru)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 
 
-project(otus_main_point VERSION ${PROJECT_VESRION} LANGUAGES CXX)
+project(otus_main_point VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
