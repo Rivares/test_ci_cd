@@ -57,6 +57,7 @@ jobs:
       # Clone this repo
       - name: Checkout
         uses: actions/checkout@v3
+        with: ${{ github.repository }}
       - run: sudo apt install -y otus_main_point-0.0.${{ github.run_number }}-Linux.deb
       # Basic checkout
       - name: Run package
