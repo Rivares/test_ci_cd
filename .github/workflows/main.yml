@@ -28,6 +28,8 @@ jobs:
       - run: pwd
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
       # - run: cmake --build . --target test
+      - run: cat /home/runner/work/test_ci_cd/test_ci_cd/libs/common/common.cpp
+      - run: cat /home/runner/work/test_ci_cd/test_ci_cd/libs/common/version.h
       - run: cmake --build . --target package
       - name: Create Release
         id: create_release
