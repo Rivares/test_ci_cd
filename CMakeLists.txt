@@ -78,3 +78,10 @@ set(CPACK_GENERATOR DEB)
 
 include(CPack)
 
+
+
+enable_testing()
+
+
+add_test(NAME test_main_boost COMMAND test_main_boost)
+add_test(NAME test_main_google COMMAND test_main_google)
