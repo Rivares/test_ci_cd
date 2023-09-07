@@ -50,17 +50,8 @@ jobs:
           asset_path: ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           asset_name: otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
-  job_run:
-    needs: [job_build]
-    runs-on: ubuntu-latest
-    steps:
-      # Clone this repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      - run: sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-      - run: otus_main_point
   job_test:
-    needs: [job_run]
+    needs: [job_build]
     runs-on: ubuntu-latest
     steps:
       # Clone this repo
@@ -69,4 +60,13 @@ jobs:
       - run: ls -la ../
       - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/boost_/test_main_boost
       # - run: ./build-test_ci_cd-Desktop-Debug/src/otus_main_point/tests/google_/test_main_google
+  job_run:
+    needs: [job_test]
+    runs-on: ubuntu-latest
+    steps:
+      # Clone this repo
+      - name: Checkout
+        uses: actions/checkout@v3
+      - run: sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
+      - run: otus_main_point
 
