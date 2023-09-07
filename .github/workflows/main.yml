@@ -61,7 +61,7 @@ jobs:
       # Basic checkout
       - name: Run package
         uses: ./
-      - run: sudo apt install -y otus_main_point-0.0.1-Linux.deb
+      - run: sudo apt install -y otus_main_point-0.0.${{ github.run_number }}-Linux.deb
       - run: ./otus_main_point
   job_test:
     needs: [job_run]
