@@ -51,7 +51,7 @@ jobs:
           asset_name: otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
   job_run:
-    needs: [job_test]
+    needs: [job_build]
     runs-on: ubuntu-latest
     steps:
       # Clone this repo
