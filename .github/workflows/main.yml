@@ -27,7 +27,6 @@ jobs:
       - run: sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       - run: pwd
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
-      - run: cmake --build .
       # - run: cmake --build . --target test
       - run: cmake --build . --target package
       - name: Create Release
