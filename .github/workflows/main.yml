@@ -60,7 +60,7 @@ jobs:
       - run: pwd
       - run: ls -la
       - run: sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-      - run: ./otus_main_point
+      - run: otus_main_point
   job_test:
     needs: [job_run]
     runs-on: ubuntu-latest
