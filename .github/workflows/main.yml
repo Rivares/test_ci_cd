@@ -57,8 +57,7 @@ jobs:
       # Clone this repo
       - name: Checkout
         uses: actions/checkout@v3
-      - run: sudo find / -name otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-      - run: sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
+      - run: sudo dpkg -i ${{github.workspace}}/otus_main_point-0.0.${{ github.run_number }}-Linux.deb
       - run: ./otus_main_point
   job_test:
     needs: [job_run]
