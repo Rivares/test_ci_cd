@@ -50,13 +50,22 @@ jobs:
           asset_path: ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           asset_name: otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
+      - name: Upload deb package for job_run
+        uses: actions/upload-artifact@v3
+        with:
+          name: package
+          path: ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
   job_run:
     needs: [job_build]
     runs-on: ubuntu-latest
     steps:
-      # Clone this repo
-      - name: Checkout
-        uses: actions/checkout@v3
-      - run: sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-      - run: otus_main_point
+      - name: Download deb package
+        uses: actions/download-artifact@v3
+        with:
+          name: package
+      - shell: bash
+        run: |
+          sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
+          otus_main_point
+
 
