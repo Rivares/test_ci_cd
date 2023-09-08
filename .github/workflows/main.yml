@@ -19,7 +19,7 @@ jobs:
       - run: sudo apt-get install cmake libboost-test-dev -y
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
       - run: sudo apt-get install build-essential libgl1-mesa-dev qt6-base-dev
-      - run: sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5svg5
+      - run: sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5svg5 libqt5widgets5
       - run: sudo mkdir /usr/src/googletest/build
       - run: cd /usr/src/googletest/build && sudo rm -f ../CMakeCache.txt && sudo cmake ../ && sudo make
       - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
