@@ -20,6 +20,16 @@ set(PROJECT_VERSION_PATCH ${PATCH_VERSION})
 project(otus_main_point VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
 
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
+find_package(Qt5 REQUIRED COMPONENTS
+                    Core # Creating target Qt5::Core
+                    Gui
+                    Widgets
+                    PrintSupport
+                    Xml
+                    Sql
+                    Concurrent
+                    )
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON) # error if version <
@@ -59,16 +69,6 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 
 
 
-find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-find_package(Qt5 REQUIRED COMPONENTS
-                    Core # Creating target Qt5::Core
-                    Gui
-                    Widgets
-                    PrintSupport
-                    Xml
-                    Sql
-                    Concurrent
-                    )
 
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version/version.h.in
