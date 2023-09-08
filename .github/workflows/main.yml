@@ -59,19 +59,6 @@ jobs:
     needs: [job_build]
     runs-on: ubuntu-latest
     steps:
-      # Clone this repo
-      # - name: Checkout
-      #   uses: actions/checkout@v3
-      # - run: sudo apt-get update
-      # - run: sudo apt-get install cmake libboost-test-dev -y
-      # - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
-      # - run: sudo apt-get install build-essential libgl1-mesa-dev qt6-base-dev
-      # - run: sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5svg5 libqt5widgets5
-      # - run: sudo mkdir /usr/src/googletest/build
-      # - run: cd /usr/src/googletest/build && sudo rm -f ../CMakeCache.txt && sudo cmake ../ && sudo make
-      # - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
-      # - run: sudo ln -s /usr/lib/libgtest.a /usr/local/lib/libgtest.a
-      # - run: sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/libgtest_main.a
       # Download package
       - name: Download deb package
         uses: actions/download-artifact@v3
@@ -80,8 +67,6 @@ jobs:
       - shell: bash
         run: |
           sudo apt install ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-          # sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-      # - run: sudo apt-get -f install
-      # - run: otus_main_point
+          otus_main_point
 
 
