@@ -67,6 +67,6 @@ jobs:
       - shell: bash
         run: |
           sudo apt install ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
-          otus_main_point
+          # otus_main_point # only for console apps
 
 
