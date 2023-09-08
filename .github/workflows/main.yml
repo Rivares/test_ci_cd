@@ -20,7 +20,6 @@ jobs:
       - run: sudo apt-get install libgtest-dev libgmock-dev libtbb-dev -y
       - run: sudo apt-get install build-essential libgl1-mesa-dev qt6-base-dev
       - run: sudo apt-get install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools libqt5svg5 libqt5widgets5
-      - run: sudo dpkg-query -L libqt5widgets5
       - run: sudo mkdir /usr/src/googletest/build
       - run: cd /usr/src/googletest/build && sudo rm -f ../CMakeCache.txt && sudo cmake ../ && sudo make
       - run: sudo cp /usr/src/googletest/build/lib/*.a /usr/lib
@@ -66,8 +65,6 @@ jobs:
           name: package
       - shell: bash
         run: |
-          sudo dpkg-query -L libqt5widgets5
-          # sudo ln -s /usr/lib/x86_64-linux-gnu/
           sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           otus_main_point
 
