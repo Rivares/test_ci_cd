@@ -13,11 +13,11 @@ message(" * CPACK_PACKAGING_INSTALL_PREFIX         -- ${CPACK_PACKAGING_INSTALL_
 
 
 
-
+set(PROJECT_NAME "otus_main_point")
 set(PATCH_VERSION "68" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 set(PROJECT_VERSION_PATCH ${PATCH_VERSION})
-project(otus_main_point VERSION ${PROJECT_VERSION} LANGUAGES CXX)
+project(VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
@@ -43,30 +43,26 @@ set(CMAKE_AUTORCC ON)
 #set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_BUILD_TYPE "Debug")
 
+
+
+
+
+set(CPACK_DEB_COMPONENT_INSTALL On)
+set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+set(CPACK_VERBATIM_VARIABLES ON)
+
+set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
-
-# set(CPACK_DEB_COMPONENT_INSTALL On)
-set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
-# set(CPACK_DEBIAN_PACKAGE_DEPENDS "libqt5widgets5, libqt5-xml, libqtgui5") 
 set(CPACK_PACKAGE_DESCRIPTION "Configure test_ci_cd and launch")
-set(CPACK_PACKAGE_CONTACT ura@example.ru)
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Maintainer <mm@example.com>")
+
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_CURRENT_SOURCE_DIR}/Debian/postinst")
 
-# set(CPACK_PACKAGE_NAME my-app)
-# set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My amazing application")
-# set(CPACK_PACKAGE_VENDOR "My Company")
-# set(CPACK_PACKAGE_INSTALL_DIRECTORY ${CPACK_PACKAGE_NAME})
-set(CPACK_VERBATIM_VARIABLES ON)
-# set(CPACK_PACKAGING_INSTALL_PREFIX "/opt/myapp")
-# set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Manfred Maintainer <mm@example.com>")
-set(CPACK_DEBIAN_PACKAGE_DEPENDS libc6 libstdc++6 libgcc-s1 libqt5widgets5 libqt5-xml libqtgui5)
-
+set(CPACK_DEBIAN_PACKAGE_DEPENDS libc6 libstdc++6 libgcc-s1 libgtest-dev libgmock-dev libtbb-dev libgl1-mesa-dev libqt5widgets5 libqt5-xml libqtgui5 libqt5svg5)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
-
-
 
 
 
@@ -74,7 +70,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version/version.h.in
                ${CMAKE_CURRENT_SOURCE_DIR}/libs/common/version.h)
 
-set(COMPONENT_GEN otus_main_point)
+set(COMPONENT_GEN ${PROJECT_NAME})
 set(COMPONENT_PLUGINS plugins)
 
 
@@ -85,7 +81,7 @@ add_subdirectory(src)
 
 
 
-install(TARGETS otus_main_point RUNTIME DESTINATION bin)
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
