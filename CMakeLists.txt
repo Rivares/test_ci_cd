@@ -60,7 +60,7 @@ set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Maintainer <mm@example.com>")
 
 set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_CURRENT_SOURCE_DIR}/Debian/postinst")
 
-set(CPACK_DEBIAN_PACKAGE_DEPENDS libc6 libstdc++6 libgcc-s1 libgtest-dev libgmock-dev libtbb-dev libgl1-mesa-dev libqt5widgets5 libqt5-xml libqtgui5 libqt5svg5)
+set(CPACK_DEBIAN_PACKAGE_DEPENDS libc6 libstdc++6 libgcc-s1 libgtest-dev libgmock-dev libtbb-dev libgl1-mesa-dev libqt5widgets5 libqt5svg5)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/cmake)
 
