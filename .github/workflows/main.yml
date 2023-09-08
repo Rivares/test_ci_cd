@@ -65,6 +65,8 @@ jobs:
           name: package
       - shell: bash
         run: |
+          sudo dpkg-query -L libqt5widgets5
+          # sudo ln -s /usr/lib/x86_64-linux-gnu/
           sudo dpkg -i ./otus_main_point-0.0.${{ github.run_number }}-Linux.deb
           otus_main_point
 
