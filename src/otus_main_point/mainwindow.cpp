@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "../plugin_auto_lambda/plugin_auto_lambda.hpp"
+
 //----------------- PDF lib's
 
 #include <QApplication>
@@ -8,6 +10,8 @@
 #include <QPrinter>
 #include <QPdfWriter>
 #include <QPainter>
+
+#include <iostream>
 
 QString currDate()
 {
@@ -24,6 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
+
+    PluginAutoLambda inst;
+
 
 
     //----------------- PDF lib's

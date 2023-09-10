@@ -2,7 +2,8 @@ get_filename_component(package_name ${CMAKE_CURRENT_LIST_DIR} NAME)
 
 set(SOURCES
     plugin_auto_lambda.cpp
-    plugin_auto_lambda.h
+    plugin_auto_lambda.hpp
+#    ip_filter.cpp
 )
 #set(FORMS
 #    plugin_auto_lambda.ui

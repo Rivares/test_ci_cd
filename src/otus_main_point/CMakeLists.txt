@@ -33,6 +33,7 @@ target_link_libraries(otus_main_point PUBLIC
             Qt5::Sql
             Qt5::PrintSupport
             common
+            plugin_auto_lambda
             )
 
 

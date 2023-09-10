@@ -5,7 +5,7 @@
 class PluginAutoLambda
 {
 public:
-    explicit PluginAutoLambda();
+    PluginAutoLambda();
     ~PluginAutoLambda();
 
 //private:
